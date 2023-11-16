@@ -40,12 +40,12 @@ int main(int argc, char **argv)
 		if (opcode == NULL || opcode[0] == '#')
 			continue;
 
-		for (i = 0; instruction_set[i].opcode != NULL; i++)
+		for (i = 0; instruction_t[i].opcode != NULL; i++)
 		{
-			if (strcmp(opcode, instruction_set[i].opcode) == 0)
+			if (strcmp(opcode, instruction_t[i].opcode) == 0)
 			{
 				found = 1;
-				instruction_set[i].f(&stack, line_number);
+				instruction_t[i].f(&stack, line_number);
 				line_number++;
 				break;
 			}
