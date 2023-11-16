@@ -9,6 +9,8 @@
 #include <fcntl.h>
 #include <ctype.h>
 
+extern instruction_t instruction_set[];
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer

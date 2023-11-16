@@ -3,7 +3,6 @@
 #include "monty.h"
 #include <stdio.h>
 
-extern instruction_t instruction_set[];
 
 /**
  * main - Entry point
@@ -20,7 +19,7 @@ int main(int argc, char **argv)
 	unsigned int line_number = 0;
 	stack_t *stack = NULL;
 	int found;
-	
+
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
