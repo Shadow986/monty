@@ -1,5 +1,7 @@
 #include "monty.h"
 
+#define _POSIX_C_SOURCE 200809L
+
 /**
  * main - Entry point
  * @argc: The number of command line arguments
@@ -14,6 +16,7 @@ int main(int argc, char **argv)
 	ssize_t read;
 	unsigned int line_number = 0;
 	stack_t *stack = NULL;
+	int found;
 	
 	if (argc != 2)
 	{
@@ -30,6 +33,7 @@ int main(int argc, char **argv)
 
 	while ((read = getline(&line, &len, file)) != -1)
 	{
+		int i;
 		int found = 0;
 		line_number++;
 		char *opcode = strtok(line, " \t\n");
@@ -37,7 +41,7 @@ int main(int argc, char **argv)
 		if (opcode == NULL || opcode[0] == '#')
 			continue;
 
-		for (int i = 0; opcode[i].opcode != NULL; i++)
+		for (i = 0; opcode[i].opcode != NULL; i++)
 		{
 			if (strcmp(opcode, opcode[i].opcode) == 0)
 			{
