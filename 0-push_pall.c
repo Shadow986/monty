@@ -32,7 +32,7 @@ void push(stack_t **stack, unsigned int line_number, char **argv)
  *
  * Return: void
  */
-void pall(stack_t **stack, unsigned int line_number)
+void pall(stack_t **stack, unsigned int line_number __attribute__((unused)))
 {
 	if (stack == NULL)
 		return;
