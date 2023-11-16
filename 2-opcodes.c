@@ -7,6 +7,8 @@
  */
 void pint(stack_t **stack, unsigned int line_number)
 {
+	(void)line_number;
+
 	if (*stack == NULL)
 	{
 		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
@@ -22,6 +24,8 @@ void pint(stack_t **stack, unsigned int line_number)
  */
 void pop(stack_t **stack, unsigned int line_number)
 {
+	(void)line_number;
+
 	if (*stack == NULL)
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
@@ -37,12 +41,14 @@ void pop(stack_t **stack, unsigned int line_number)
  */
 void swap(stack_t **stack, unsigned int line_number)
 {
+	stack_t *temp;
+
 	if (*stack == NULL || (*stack)->next == NULL)
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	stack_t *temp = (*stack)->next;
+	temp = (*stack)->next;
 	(*stack)->next = temp->next;
 	temp->next = *stack;
 	*stack = temp;
@@ -55,12 +61,14 @@ void swap(stack_t **stack, unsigned int line_number)
  */
 void add(stack_t **stack, unsigned int line_number)
 {
+	int n;
+
 	if (*stack == NULL || (*stack)->next == NULL)
 	{
 		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	int n = (*stack)->n + (*stack)->next->n;
+	n = (*stack)->n + (*stack)->next->n;
 	stack_pop(stack);
 	stack_pop(stack);
 	stack_push(stack, n);
@@ -73,5 +81,8 @@ void add(stack_t **stack, unsigned int line_number)
  */
 void nop(stack_t **stack, unsigned int line_number)
 {
-    /* nothing to do */
+	(void)stack;
+	(void)line_number;
+
+	/* nothing to do */
 }

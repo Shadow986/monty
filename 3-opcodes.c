@@ -27,7 +27,7 @@ void sub(stack_t **stack, unsigned int line_number)
  * @stack: pointer to the stack
  * @line_number: line number in the file
  */
-void div(stack_t **stack, unsigned int line_number)
+void division(stack_t **stack, unsigned int line_number)
 {
 	int n;
 
