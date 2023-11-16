@@ -39,6 +39,12 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/**
+ * Frees a stack.
+ * @stack: Pointer to the top of the stack.
+ */
+void free_stack(stack_t *stack);
+
 /* PROTOTYPES */
 
 void push(stack_t **stack, unsigned int line_number, char **argv);
