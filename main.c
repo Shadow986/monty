@@ -45,7 +45,7 @@ int main(int argc, char **argv)
 			if (strcmp(opcode, instruction_set[i].opcode) == 0)
 			{
 				found = 1;
-				opcode[i].f(&stack, line_number);
+				instruction_set[i].f(&stack, line_number);
 				line_number++;
 				break;
 			}
