@@ -9,6 +9,7 @@
 #include <fcntl.h>
 #include <ctype.h>
 
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -40,6 +41,7 @@ typedef struct instruction_s
 	void (*f_no_argv)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+extern instruction_t instruction_set[];
 /**
  * Frees a stack.
  * @stack: Pointer to the top of the stack.
