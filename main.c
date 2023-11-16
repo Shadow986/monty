@@ -8,20 +8,21 @@
  */
 int main(int argc, char **argv)
 {
+	FILE *file = fopen(argv[1], "r");
+	char *line = NULL;
+	
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 
-	FILE *file = fopen(argv[1], "r");
 	if (!file)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 
-	char *line = NULL;
 	size_t len = 0;
 	ssize_t read;
 	unsigned int line_number = 0;
@@ -31,11 +32,12 @@ int main(int argc, char **argv)
 	{
 		line_number++;
 		char *opcode = strtok(line, " \t\n");
+
 		if (opcode == NULL || opcode[0] == '#')
 			continue;
 
 		int found = 0;
-		for (int i = 0; opcodes[i].opcode != NULL; i++)
+		for (int i = 0; opcode[i].opcode != NULL; i++)
 		{
 			if (strcmp(opcode, opcodes[i].opcode) == 0)
 			{
