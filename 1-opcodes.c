@@ -30,14 +30,17 @@ instruction_t instruction_set[] = {
 int is_instruction_valid(char *line)
 {
 	int i;
+	char *opcode;
 
-	for (i = 0; i < 15; i++)
-	{
-		if (strcmp(line, instruction_set[i].opcode) == 0)
+	opcode = strtok(line, " \t\n");
+	if (opcode == NULL)
+		return (0);
+
+	for (i = 0; instruction_set[i].opcode != NULL; i++)
 		{
-			return (1);
+			if (strcmp(opcode, instruction_set[i].opcode) == 0)
+				return (1);
 		}
-	}
 	return (0);
 }
 
