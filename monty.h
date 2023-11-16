@@ -37,6 +37,7 @@ typedef struct instruction_s
 {
         char *opcode;
         void (*f)(stack_t **stack, unsigned int line_number, char **argv);
+	void (*f_no_argv)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 /**

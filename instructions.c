@@ -11,20 +11,20 @@ instruction_t instruction_set[] = {
     /**
      * push - Pushes an element onto the stack
      */
-    {"push", push},
+    {"push", push, NULL},
 
     /**
      * pall - Prints all values on the stack
      */
-    {"pall", pall},
+    {"pall", NULL, pall},
 
     /**
      * pint - Prints the value at the top of the stack
      */
-    {"pint", pint},
+    {"pint", NULL, pint},
 
     /**
      * Sentinel structure to mark the end of the array
      */
-    {NULL, NULL}
+    {NULL, NULL, NULL}
 };
