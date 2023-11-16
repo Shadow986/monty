@@ -11,6 +11,9 @@ int main(int argc, char **argv)
 	FILE *file = fopen(argv[1], "r");
 	char *line = NULL;
 	size_t len = 0;
+	ssize_t read;
+	unsigned int line_number = 0;
+	stack_t *stack = NULL;
 	
 	if (argc != 2)
 	{
@@ -24,9 +27,6 @@ int main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 
-	ssize_t read;
-	unsigned int line_number = 0;
-	stack_t *stack = NULL;
 
 	while ((read = getline(&line, &len, file)) != -1)
 	{
