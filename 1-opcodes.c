@@ -1,5 +1,26 @@
 #include "monty.h"
 
+instruction_t instruction_set[] = {
+	{"push", push},
+	{"pall", pall},
+	{"pint", pint},
+	{"pop", pop},
+	{"swap", swap},
+	{"add", add},
+	{"nop", nop},
+	{"sub", sub},
+	{"div", division},
+	{"mul", mul},
+	{"mod", mod},
+	{"pchar", pchar},
+	{"pstr", pstr},
+	{"rotl", rotl},
+	{"rotr", rotr},
+	{"stack", stack},
+	{"queue", queue},
+	{NULL, NULL}
+};
+
 /**
  * is_instruction_valid - this is a function that checks
  * if the given line is a valid instruction
@@ -12,12 +33,12 @@ int is_instruction_valid(char *line)
 
 	for (i = 0; i < 15; i++)
 	{
-		if (strcmp(line, instruction[i].opcode) == 0)
+		if (strcmp(line, instruction_set[i].opcode) == 0)
 		{
 			return (1);
-        }
-    }
-    return (0);
+		}
+	}
+	return (0);
 }
 
 /**
@@ -27,11 +48,11 @@ int is_instruction_valid(char *line)
  */
 instruction_t get_instruction(char *line)
 {
-    instruction_t instruction;
+	instruction_t instruction;
 
-    instruction.opcode = strtok(line, " ");
-    instruction.f = get_instruction_function(instruction.opcode);
-    return (instruction);
+	instruction.opcode = strtok(line, " ");
+	instruction.f = get_instruction_function(instruction.opcode);
+	return (instruction);
 }
 
 /**
@@ -46,12 +67,12 @@ void (*get_instruction_function(char *opcode))(stack_t **stack, unsigned int lin
 
 	for (i = 0; i < 15; i++)
 	{
-		if (strcmp(opcode, instruction_s[i].opcode) == 0)
+		if (strcmp(opcode, instruction_set[i].opcode) == 0)
 		{
-			return (instructions[i].f);
+			return (instruction_set[i].f);
 		}
 	}
-    return (NULL);
+	return (NULL);
 }
 
 /**

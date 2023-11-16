@@ -61,5 +61,6 @@ void queue(stack_t **stack, unsigned int line_number);
 int is_instruction_valid(char *line);
 instruction_t get_instruction(char *line);
 void (*get_instruction_function(char *opcode))(stack_t **stack, unsigned int line_number);
+extern instruction_t instruction_set[];
 
 #endif /* MONTY_H */
