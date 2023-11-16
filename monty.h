@@ -42,7 +42,6 @@ typedef struct instruction_s
 /* PROTOTYPES */
 
 void push(stack_t **stack, unsigned int line_number, char **argv);
-push(stack, line_number, argv);
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
 
