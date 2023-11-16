@@ -9,7 +9,7 @@
  *
  * Return: void
  */
-void push(stack_t **stack, unsigned int line_number)
+void push(stack_t **stack, unsigned int line_number, char **argv)
 {
 	int n;
 
