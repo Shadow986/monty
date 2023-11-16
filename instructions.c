@@ -11,7 +11,7 @@ instruction_t instruction_set[] = {
     /**
      * push - Pushes an element onto the stack
      */
-    {"push", push_stack},
+    {"push", push},
 
     /**
      * pall - Prints all values on the stack
