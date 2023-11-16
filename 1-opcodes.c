@@ -61,7 +61,7 @@ instruction_t get_instruction(char *line)
  * @opcode: opcode to get the function for
  * Return: function
  */
-void (*get_instruction_function(char *opcode))(stack_t **stack, unsigned int line_number)
+void (*get_instruction_function(char *opcode) (stack_t **stack, unsigned int line_number)
 {
 	int i;
 
