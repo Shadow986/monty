@@ -1,5 +1,10 @@
 #include "monty.h"
 
+/**
+ * stack_pop - Function to pop an element from the stack
+ * @stack: double pointer to the stack
+ * Return: void
+ */
 void stack_pop(stack_t **stack)
 {
 	stack_t *temp = *stack;
@@ -19,6 +24,12 @@ void stack_pop(stack_t **stack)
 	free(temp);
 }
 
+/**
+ * stack_push - Function to push an element onto the stack
+ * @stack: double pointer to the stack
+ * @value: integer value to be pushed onto the stack
+ * Return: void
+ */
 void stack_push(stack_t **stack, int value)
 {
 	stack_t *new_node = malloc(sizeof(stack_t));
