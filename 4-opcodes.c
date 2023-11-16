@@ -1,29 +1,30 @@
 #include "monty.h"
 
 /**
- * pstr - prints the string starting at the top of the stack, followed by a new line
+ * pstr - prints the string starting at the top of the stack, followed by a
+ * new line
  * @stack: pointer to the stack
  * @line_number: line number in the file
  */
 void pstr(stack_t **stack, unsigned int line_number)
 {
-    stack_t *temp = *stack;
-    char str[1000];
-    int i = 0;
+	stack_t *temp = *stack;
+	char str[1000];
+	int i = 0;
 
-    while (temp != NULL)
-    {
-        if (temp->n < 0 || temp->n > 127)
-        {
-            fprintf(stderr, "L%d: can't pstr, value out of range\n", line_number);
-            exit(EXIT_FAILURE);
-        }
-        str[i] = temp->n;
-        i++;
-        temp = temp->next;
-    }
-    str[i] = '\0';
-    printf("%s\n", str);
+	while (temp != NULL)
+	{
+		if (temp->n < 0 || temp->n > 127)
+		{
+			fprintf(stderr, "L%d: can't pstr, value out of range\n", line_number);
+			exit(EXIT_FAILURE);
+		}
+		str[i] = temp->n;
+		i++;
+		temp = temp->next;
+	}
+	str[i] = '\0';
+	printf("%s\n", str);
 }
 
 /**
@@ -33,15 +34,16 @@ void pstr(stack_t **stack, unsigned int line_number)
  */
 void rotl(stack_t **stack, unsigned int line_number)
 {
-    stack_t *temp = *stack;
+	stack_t *temp = *stack;
+	(void)line_number;
 
-    while (temp->next != NULL)
-    {
-        temp = temp->next;
-    }
-    temp->next = *stack;
-    *stack = temp->next;
-    temp->next = NULL;
+	while (temp->next != NULL)
+	{
+		temp = temp->next;
+	}
+	temp->next = *stack;
+	*stack = temp->next;
+	temp->next = NULL;
 }
 
 /**
@@ -51,14 +53,15 @@ void rotl(stack_t **stack, unsigned int line_number)
  */
 void rotr(stack_t **stack, unsigned int line_number)
 {
-    stack_t *temp = *stack;
+	stack_t *temp = *stack;
+	(void)line_number;
 
-    while (temp->next != NULL)
-    {
-        temp = temp->next;
-    }
-    temp->next = *stack;
-    *stack = temp;
+	while (temp->next != NULL)
+	{
+		temp = temp->next;
+	}
+	temp->next = *stack;
+	*stack = temp;
 }
 
 /**
@@ -68,7 +71,9 @@ void rotr(stack_t **stack, unsigned int line_number)
  */
 void stack(stack_t **stack, unsigned int line_number)
 {
-    /* nothing to do */
+	(void)stack;
+	(void)line_number;
+	/* nothing to do */
 }
 
 /**
@@ -78,12 +83,13 @@ void stack(stack_t **stack, unsigned int line_number)
  */
 void queue(stack_t **stack, unsigned int line_number)
 {
-    stack_t *temp = *stack;
+	stack_t *temp = *stack;
+	(void)line_number;
 
-    while (temp->next != NULL)
-    {
-        temp = temp->next;
-    }
-    temp->next = *stack;
-    *stack = temp;
+	while (temp->next != NULL)
+	{
+		temp = temp->next;
+	}
+	temp->next = *stack;
+	*stack = temp;
 }

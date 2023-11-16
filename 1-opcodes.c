@@ -12,7 +12,7 @@ int is_instruction_valid(char *line)
 
 	for (i = 0; i < 15; i++)
 	{
-		if (strcmp(line, instructions[i].opcode) == 0)
+		if (strcmp(line, instruction[i].opcode) == 0)
 		{
 			return (1);
         }
@@ -46,7 +46,7 @@ void (*get_instruction_function(char *opcode))(stack_t **stack, unsigned int lin
 
 	for (i = 0; i < 15; i++)
 	{
-		if (strcmp(opcode, instructions[i].opcode) == 0)
+		if (strcmp(opcode, instruction_s[i].opcode) == 0)
 		{
 			return (instructions[i].f);
 		}

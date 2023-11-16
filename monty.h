@@ -1,9 +1,11 @@
 #ifndef MONTY_H
 #define MONTY_H
 
+#include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -16,9 +18,9 @@
  */
 typedef struct stack_s
 {
-    int n;
-    struct stack_s *prev;
-    struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 
 /**
@@ -31,10 +33,30 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-    char *opcode;
-    void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+instruction_t instruction_set[] = {
+	{"push", push},
+	{"pall", pall},
+	{"pint", pint},
+	{"pop", pop},
+	{"swap", swap},
+	{"add", add},
+	{"nop", nop},
+	{"sub", sub},
+	{"div", div},
+	{"mul", mul},
+	{"mod", mod},
+	{"pchar", pchar},
+	{"pstr", pstr},
+	{"rotl", rotl},
+	{"rotr", rotr},
+	{"stack", stack},
+	{"queue", queue},
+	{NULL, NULL}
+}
 /* PROTOTYPES */
 
 void push(stack_t **stack, unsigned int line_number);
@@ -54,5 +76,8 @@ void rotl(stack_t **stack, unsigned int line_number);
 void rotr(stack_t **stack, unsigned int line_number);
 void stack(stack_t **stack, unsigned int line_number);
 void queue(stack_t **stack, unsigned int line_number);
+int is_instruction_valid(char *line);
+instruction_t get_instruction(char *line);
+void (*get_instruction_function(char *opcode))(stack_t **stack, unsigned int line_number);
 
 #endif /* MONTY_H */
