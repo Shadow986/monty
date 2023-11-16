@@ -1,4 +1,6 @@
 #!/bin/bash
+# Updating local with remote changes
+git pull
 
 # Run 'git add .' to stage all changes
 git add .

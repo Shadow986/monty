@@ -8,23 +8,23 @@
  * sentinel structure containing NULL for both the opcode and function.
  */
 instruction_t instruction_set[] = {
-    /**
-     * push - Pushes an element onto the stack
-     */
-    {"push", push, NULL},
+	/**
+	 * push - Pushes an element onto the stack
+	 */
+	{"push", push, NULL},
 
-    /**
-     * pall - Prints all values on the stack
-     */
-    {"pall", NULL, pall},
+	/**
+	 * pall - Prints all values on the stack
+	 */
+	{"pall", NULL, pall},
 
-    /**
-     * pint - Prints the value at the top of the stack
-     */
-    {"pint", NULL, pint},
+	/**
+	 * pint - Prints the value at the top of the stack
+	 */
+	{"pint", NULL, pint},
 
-    /**
-     * Sentinel structure to mark the end of the array
-     */
-    {NULL, NULL, NULL}
+	/**
+	 * Sentinel structure to mark the end of the array
+	 */
+	{NULL, NULL, NULL}
 };

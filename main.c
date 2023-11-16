@@ -3,6 +3,7 @@
 #include "monty.h"
 #include <stdio.h>
 
+extern instruction_t instruction_set[];
 
 /**
  * main - Entry point
