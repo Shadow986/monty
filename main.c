@@ -1,8 +1,7 @@
-#include "monty.h"
-#define _GNU_SOURCE
-#include <stdio.h>
-
 #define _POSIX_C_SOURCE 200809L
+#define _GNU_SOURCE
+#include "monty.h"
+#include <stdio.h>
 
 /**
  * main - Entry point
@@ -37,7 +36,6 @@ int main(int argc, char **argv)
 	{
 		int i;
 		int found = 0;
-		line_number++;
 		char *opcode = strtok(line, " \t\n");
 
 		if (opcode == NULL || opcode[0] == '#')
@@ -49,6 +47,7 @@ int main(int argc, char **argv)
 			{
 				found = 1;
 				opcode[i].f(&stack, line_number);
+				line_number++;
 				break;
 			}
 		}
