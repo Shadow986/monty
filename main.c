@@ -10,6 +10,7 @@ int main(int argc, char **argv)
 {
 	FILE *file = fopen(argv[1], "r");
 	char *line = NULL;
+	size_t len = 0;
 	
 	if (argc != 2)
 	{
@@ -23,26 +24,25 @@ int main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 
-	size_t len = 0;
 	ssize_t read;
 	unsigned int line_number = 0;
 	stack_t *stack = NULL;
 
 	while ((read = getline(&line, &len, file)) != -1)
 	{
+		int found = 0;
 		line_number++;
 		char *opcode = strtok(line, " \t\n");
 
 		if (opcode == NULL || opcode[0] == '#')
 			continue;
 
-		int found = 0;
 		for (int i = 0; opcode[i].opcode != NULL; i++)
 		{
-			if (strcmp(opcode, opcodes[i].opcode) == 0)
+			if (strcmp(opcode, opcode[i].opcode) == 0)
 			{
 				found = 1;
-				opcodes[i].f(&stack, line_number);
+				opcode[i].f(&stack, line_number);
 				break;
 			}
 		}
