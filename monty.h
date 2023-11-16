@@ -45,4 +45,10 @@ void push(stack_t **stack, unsigned int line_number, char **argv);
 void pall(stack_t **stack, unsigned int line_number __attribute__((unused)));
 void pint(stack_t **stack, unsigned int line_number);
 
-#endif /* _MONTY_H */
+/* New declarations for missing functions */
+void push_stack(stack_t **stack, int n);
+void print_stack(stack_t *stack);
+int is_empty(stack_t *stack);
+stack_t *top(stack_t *stack);
+
+#endif /* _MONTY_H  */
