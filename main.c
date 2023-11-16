@@ -35,15 +35,14 @@ int main(int argc, char **argv)
 	while ((read = getline(&line, &len, file)) != -1)
 	{
 		int i;
-		int found = 0;
 		char *opcode = strtok(line, " \t\n");
 
 		if (opcode == NULL || opcode[0] == '#')
 			continue;
 
-		for (i = 0; opcode[i].opcode != NULL; i++)
+		for (i = 0; instruction_set[i].opcode != NULL; i++)
 		{
-			if (strcmp(opcode, opcode[i].opcode) == 0)
+			if (strcmp(opcode, instruction_set[i].opcode) == 0)
 			{
 				found = 1;
 				opcode[i].f(&stack, line_number);
