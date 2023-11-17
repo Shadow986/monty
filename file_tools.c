@@ -39,7 +39,7 @@ void files_reader(FILE *fd)
 
 
 /**
- * lines_parser - line separator for 
+ * lines_parser - line separator for
  * which function to call
  * @buffer: contents of a file line
  * @line_number: line number
