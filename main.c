@@ -15,23 +15,23 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	open_file(argv[1]);
-	free_nodes();
+	files_opener(argv[1]);
+	nodes_freeing();
 	return (0);
 }
 
 /**
- * create_node - Creates a node.
+ * nodes_creator - Creates a node.
  * @n: Number to go inside the node.
  * Return: Upon sucess a pointer to the node. Otherwise NULL.
  */
-stack_t *create_node(int n)
+stack_t *nodes_creator(int n)
 {
 	stack_t *node;
 
 	node = malloc(sizeof(stack_t));
 	if (node == NULL)
-		err(4);
+		errors(4);
 	node->next = NULL;
 	node->prev = NULL;
 	node->n = n;
@@ -39,11 +39,10 @@ stack_t *create_node(int n)
 }
 
 /**
- * free_nodes - Frees nodes in the stack.
+ * nodes_freeing - Frees nodes in the stack.
  */
-void free_nodes(void)
+void nodes_freeing(void)
 {
-<<<<<<< HEAD
 	stack_t *tmp;
 
 	if (head == NULL)
@@ -59,11 +58,11 @@ void free_nodes(void)
 
 
 /**
- * add_to_queue - Adds a node to the queue.
+ * queue_adder - Adds a node to the queue.
  * @new_node: Pointer to the new node.
- * @ln: line number of the opcode.
+ * @ln: line number.
  */
-void add_to_queue(stack_t **new_node, __attribute__((unused))unsigned int ln)
+void queue_adder(stack_t **new_node, __attribute__((unused))unsigned int ln)
 {
 	stack_t *tmp;
 
@@ -81,45 +80,4 @@ void add_to_queue(stack_t **new_node, __attribute__((unused))unsigned int ln)
 	tmp->next = *new_node;
 	(*new_node)->prev = tmp;
 
-=======
-	FILE *file;
-	char *line = NULL;
-	size_t len = 0;
-	ssize_t read;
-	unsigned int line_number = 1;
-	stack_t *stack = NULL;
-
-	if (argc != 2)
-	{
-		fprintf(stderr, "USAGE: monty file\n");
-		return (EXIT_FAILURE);
-	}
-	file = fopen(argv[1], "r");
-	if (file == NULL)
-	{
-		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
-		return (EXIT_FAILURE);
-	}
-	while ((read = getline(&line, &len, file)) != -1)
-	{
-		line_number++;
-		if (line[0] == '#')
-		{
-			continue;
-		}
-		if (is_instruction_valid(line))
-		{
-			instruction_t instruction = get_instruction(line);
-			instruction.f(&stack, line_number);
-		}
-		else
-		{
-			fprintf(stderr, "L%d: unknown instruction %s\n", line_number, line);
-			exit(EXIT_FAILURE);
-		}
-	}
-	free(line);
-	fclose(file);
-	return (EXIT_SUCCESS);
->>>>>>> bf9d20068c3fa4abae340b6015eddc730d2709cc
 }
